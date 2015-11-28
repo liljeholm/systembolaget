@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author torbjorn
  *
  */
-public class XmlArticle implements Comparable<XmlArticle> {
+public class XmlArticle {
 
 	@XmlElement(name = "nr")
 	private long number;
@@ -56,10 +56,5 @@ public class XmlArticle implements Comparable<XmlArticle> {
 
 	public BigDecimal calculateApk() {
 		return abv.multiply(volume).divide(price, 2, RoundingMode.HALF_UP);
-	}
-
-	@Override
-	public int compareTo(XmlArticle o) {
-		return o.calculateApk().compareTo(calculateApk());
 	}
 }
