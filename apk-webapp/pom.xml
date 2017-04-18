@@ -3,15 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.springframework</groupId>
-	<artifactId>apk-rest-service</artifactId>
-	<version>0.1.0</version>
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.0.RELEASE</version>
+		<version>1.5.2.RELEASE</version>
 	</parent>
+	
+	<groupId>se.liljeholm</groupId>
+	<artifactId>apk-rest-service</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
 	<dependencies>
 		<dependency>
@@ -26,12 +30,16 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j2</artifactId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
+			<version>3.5</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -39,10 +47,6 @@
 			<version>2.4</version>
 		</dependency>
 	</dependencies>
-
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
 
 	<build>
 		<plugins>

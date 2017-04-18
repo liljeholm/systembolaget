@@ -10,5 +10,5 @@ import se.liljeholm.systembolaget.json.Article;
  */
 public interface SystembolagetClient {
 
-	List<Article> getArticles();
+    List<Article> getArticles();
 }

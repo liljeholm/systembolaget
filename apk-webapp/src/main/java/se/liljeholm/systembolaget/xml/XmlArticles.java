@@ -1,6 +1,3 @@
-/**
- *
- */
 package se.liljeholm.systembolaget.xml;
 
 import java.util.List;
@@ -18,17 +15,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class XmlArticles {
 
-	@XmlElement(name = "skapad-tid")
-	private String created;
+    @XmlElement(name = "skapad-tid")
+    private String created;
 
-	@XmlElement(name = "artikel")
-	private List<XmlArticle> list;
+    @XmlElement(name = "artikel")
+    private List<XmlArticle> list;
 
-	public String getCreated() {
-		return created;
-	}
+    public String getCreated() {
+        return created;
+    }
 
-	public List<XmlArticle> getList() {
-		return list;
-	}
+    public List<XmlArticle> getList() {
+        return list;
+    }
 }
