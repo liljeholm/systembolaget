@@ -36,7 +36,6 @@ public class JaxbSystembolagetClient implements SystembolagetClient {
     @Value("${systembolaget.api.url}")
     private String url;
 
-
     @Override
     public List<Article> getArticles() {
         Unmarshaller unmarshaller;
