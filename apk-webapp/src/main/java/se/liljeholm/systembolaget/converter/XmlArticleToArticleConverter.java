@@ -1,6 +1,3 @@
-/**
- *
- */
 package se.liljeholm.systembolaget.converter;
 
 import org.springframework.core.convert.converter.Converter;

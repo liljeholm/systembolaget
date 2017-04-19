@@ -21,7 +21,7 @@ public class ApkController {
     private SystembolagetClient systembolagetClient;
 
     @RequestMapping("/articles")
-    public List<Article> getArticles(@RequestParam(name = "apk", defaultValue = "2") String apk) throws Exception {
+    public List<Article> getArticles(@RequestParam(name = "apk", defaultValue = "2") String apk) {
         return systembolagetClient.getArticles()
                                   .stream()
                                   .filter(a -> a.getApk().compareTo(new BigDecimal(apk)) > 0)

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import se.liljeholm.common.InitializationException;
 import se.liljeholm.systembolaget.converter.XmlArticleToArticleConverter;
 import se.liljeholm.systembolaget.json.Article;
 import se.liljeholm.systembolaget.xml.XmlArticles;
@@ -42,7 +43,7 @@ public class JaxbSystembolagetClient implements SystembolagetClient {
         try {
             unmarshaller = jaxbContext.createUnmarshaller();
         } catch (JAXBException e) {
-            throw new RuntimeException(e);
+            throw new InitializationException("Failed to create unmarshaller", e);
         }
 
         XmlArticles xmlArticles;
@@ -50,7 +51,7 @@ public class JaxbSystembolagetClient implements SystembolagetClient {
         try {
             xmlArticles = (XmlArticles) unmarshaller.unmarshal(new URL(url));
         } catch (MalformedURLException | JAXBException e) {
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException("Failed to unmarshal using url: " + url, e);
         }
         long totalTime = System.currentTimeMillis() - start;
         LOG.info("Unmarshaled {} articles in {} ms.", xmlArticles.getList().size(), totalTime );

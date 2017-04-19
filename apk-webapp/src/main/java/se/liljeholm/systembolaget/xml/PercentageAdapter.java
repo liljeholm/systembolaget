@@ -1,6 +1,7 @@
 package se.liljeholm.systembolaget.xml;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.text.NumberFormat;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
@@ -15,7 +16,7 @@ public class PercentageAdapter extends XmlAdapter<String, BigDecimal> {
     @Override
     public BigDecimal unmarshal(String v) throws Exception {
         String cleaned = v.replaceAll("%", "");
-        return new BigDecimal(cleaned).divide(ONE_HUNDRED);
+        return new BigDecimal(cleaned).divide(ONE_HUNDRED, MathContext.DECIMAL32);
     }
 
     @Override
