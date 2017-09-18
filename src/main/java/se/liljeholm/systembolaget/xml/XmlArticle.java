@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * @author torbjorn
- *
  */
 public class XmlArticle {
 
@@ -52,6 +51,10 @@ public class XmlArticle {
 
     public String getType() {
         return type;
+    }
+
+    public BigDecimal getAbv() {
+        return abv;
     }
 
     public BigDecimal calculateApk() {
