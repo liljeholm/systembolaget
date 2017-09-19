@@ -1,9 +1,9 @@
 {
-	"properties": [
-		{
-			"name": "systembolaget.api.url",
-			"type": "java.lang.String",
-			"description": "Systembolaget API url"
-		}
-	]
+  "properties": [
+    {
+      "name": "systembolaget.api.url",
+      "type": "java.lang.String",
+      "description": "Systembolaget API url"
+    }
+  ]
 }

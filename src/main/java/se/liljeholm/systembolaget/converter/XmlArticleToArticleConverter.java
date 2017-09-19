@@ -1,16 +1,14 @@
 package se.liljeholm.systembolaget.converter;
 
-import java.text.NumberFormat;
-
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-
 import se.liljeholm.systembolaget.json.Article;
 import se.liljeholm.systembolaget.xml.XmlArticle;
 
+import java.text.NumberFormat;
+
 /**
  * @author torbjorn
- *
  */
 @Component
 public class XmlArticleToArticleConverter implements Converter<XmlArticle, Article> {

@@ -1,14 +1,13 @@
 package se.liljeholm.systembolaget;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
-
 import se.liljeholm.systembolaget.xml.XmlArticles;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 
 @EnableCaching
 @SpringBootApplication

@@ -1,14 +1,12 @@
 package se.liljeholm.systembolaget.xml;
 
+import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.text.NumberFormat;
 
-import javax.xml.bind.annotation.adapters.XmlAdapter;
-
 /**
  * @author torbjorn
- *
  */
 public class PercentageAdapter extends XmlAdapter<String, BigDecimal> {
     private static final BigDecimal ONE_HUNDRED = new BigDecimal("100");

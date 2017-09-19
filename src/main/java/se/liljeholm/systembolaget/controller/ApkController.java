@@ -1,12 +1,5 @@
 package se.liljeholm.systembolaget.controller;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
-
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.Cacheable;
@@ -15,9 +8,15 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import se.liljeholm.systembolaget.json.Article;
 import se.liljeholm.systembolaget.service.SystembolagetClient;
+
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
 public class ApkController {
@@ -32,10 +31,10 @@ public class ApkController {
                                           @RequestParam(name = "toIndex", defaultValue = "100") int toIndex) {
         final AtomicInteger placement = new AtomicInteger(0);
         List<Article> articles = systembolagetClient.getArticles()
-                                  .stream()
-                                  .sorted((a1, a2) -> a2.getApk().compareTo(a1.getApk()))
-                                  .peek(a -> a.setPlacement(placement.incrementAndGet()))
-                                  .collect(Collectors.toList());
+                                                    .stream()
+                                                    .sorted((a1, a2) -> a2.getApk().compareTo(a1.getApk()))
+                                                    .peek(a -> a.setPlacement(placement.incrementAndGet()))
+                                                    .collect(Collectors.toList());
         Resources<Article> resources = new Resources<>(articles.subList(fromIndex, toIndex));
 
         int nextFromIndex = Math.min(toIndex, articles.size());

@@ -1,28 +1,25 @@
 package se.liljeholm.systembolaget.service;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
 import se.liljeholm.common.InitializationException;
 import se.liljeholm.systembolaget.converter.XmlArticleToArticleConverter;
 import se.liljeholm.systembolaget.json.Article;
 import se.liljeholm.systembolaget.xml.XmlArticles;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author torbjorn
- *
  */
 @Service
 public class JaxbSystembolagetClient implements SystembolagetClient {
@@ -54,7 +51,7 @@ public class JaxbSystembolagetClient implements SystembolagetClient {
             throw new IllegalArgumentException("Failed to unmarshal using url: " + url, e);
         }
         long totalTime = System.currentTimeMillis() - start;
-        LOG.info("Unmarshaled {} articles in {} ms.", xmlArticles.getList().size(), totalTime );
+        LOG.info("Unmarshaled {} articles in {} ms.", xmlArticles.getList().size(), totalTime);
 
         return xmlArticles.getList()
                           .parallelStream()

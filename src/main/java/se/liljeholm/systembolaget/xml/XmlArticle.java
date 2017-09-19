@@ -1,10 +1,9 @@
 package se.liljeholm.systembolaget.xml;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * @author torbjorn

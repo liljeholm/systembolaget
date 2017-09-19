@@ -4,11 +4,9 @@ import java.math.BigDecimal;
 
 /**
  * @author torbjorn
- *
  */
 public class Article implements Comparable<Article> {
     private final long id;
-    private int placement;
     private final String url;
     private final String name;
     private final String type;
@@ -16,8 +14,10 @@ public class Article implements Comparable<Article> {
     private final BigDecimal volume;
     private final String abv;
     private final BigDecimal apk;
+    private int placement;
 
-    public Article(long id, String name, String type, String url, String price, BigDecimal volume, String abv, BigDecimal apk) {
+    public Article(long id, String name, String type, String url, String price, BigDecimal volume, String abv,
+                   BigDecimal apk) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -65,12 +65,12 @@ public class Article implements Comparable<Article> {
         return o.apk.compareTo(apk);
     }
 
+    public int getPlacement() {
+        return placement;
+    }
+
     public Article setPlacement(int placement) {
         this.placement = placement;
         return this;
-    }
-
-    public int getPlacement() {
-        return placement;
     }
 }

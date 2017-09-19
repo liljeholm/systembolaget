@@ -1,12 +1,11 @@
 package se.liljeholm.systembolaget.service;
 
-import java.util.List;
-
 import se.liljeholm.systembolaget.json.Article;
+
+import java.util.List;
 
 /**
  * @author torbjorn
- *
  */
 public interface SystembolagetClient {
 
